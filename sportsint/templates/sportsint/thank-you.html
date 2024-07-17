@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bilgi Güncelleme Formu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Bilgi Güncelleme</h2>
+  <div class="alert alert-success">
+
+
+    {% if messages %}
+<ul class="messages">
+
+
+    {% for message in messages %}
+    <strong>Sayın {{ message }}  </strong>
+    <p></p>
+    <p  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> İzin işleminizi tamamladığınız için teşekkür ederiz,izin içeriğine <p><a href="https://p-sports.infoart.com.tr/contact/{{ message.extra_tags }}">https://p-sports.infoart.com.tr/contact/{{ message.extra_tags }}</a></p> adresinden ulaşabilirsiniz.Bu kapsamda vermiş olduğunuz onayı istediğiniz zaman geri almanız mümkündür. </p>
+
+    {% endfor %}
+
+
+</ul>
+{% endif %}
+  </div>
+
+
+</body>
+</html>

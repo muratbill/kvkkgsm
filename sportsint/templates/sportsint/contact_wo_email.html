@@ -1,0 +1,48 @@
+{% extends 'sportsint/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="{% url 'contact' pk %}" method="post"  enctype="multipart/form-data" class="frm">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-12 mb-0">
+        {{ contactformwoemail.ad|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-12 mb-0">
+        {{ contactformwoemail.soyad|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-12 mb-0">
+        {{ contactformwoemail.cepno|as_crispy_field }}
+      </div>
+      <h6>Elektronik Ticari İleti Almayı Kabul Ediyorum</h6>
+       <div class="form-check form-switch">
+	      {{ contactformwoemail.iys_sms|as_crispy_field }}
+              {{ contactformwoemail.iys_arama|as_crispy_field }}
+       </div>
+
+      <div class="form-check">
+
+      
+          {{ contactformwoemail.k_aydinlatmaMetin|as_crispy_field }}
+      </div>
+
+      </div>	      
+
+      <p align="left" style="font-size:10px">Aydınlatma metnine ulaşmak için lütfen <a href="https://www.sportsinternational.com.tr/kurumsal/kisisel-verilerin-korunmasi">tıklayınız</a></p>
+
+    <style>
+      .frm {
+          color: rgb(0, 137, 208);
+      }
+
+      .form-check {
+       position: static;
+       margin-top: 2;
+       margin-left: -12;
+      }
+
+  </style>
+
+
+    <button type="submit" class="btn btn-success">Onayla</button>
+  </form>
+{% endblock %}

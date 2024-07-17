@@ -1,0 +1,18 @@
+{% extends 'kvkkapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form action="{% url 'contact' pk %}" method="post"  enctype="multipart/form-data" class="frm">
+    {% csrf_token %}
+    {{ contactform|crispy }}
+
+    <style>
+      .frm {
+          color: rgb(0, 137, 208);
+      }
+
+  </style>
+
+
+    <button type="submit" class="btn btn-success">Onayla</button>
+  </form>
+{% endblock %}
